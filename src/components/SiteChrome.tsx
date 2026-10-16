@@ -2,14 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const nav = [
-  { to: "/dashboard", label: "Dashboard" },
-  { to: "/curriculum", label: "Curriculum" },
-  { to: "/example", label: "Worked Example" },
-  { to: "/toolkit", label: "Toolkit" },
-  { to: "/glossary", label: "Glossary" },
-  { to: "/about", label: "About" },
-] as const;
+const nav = [{ to: "/", label: "Home" }] as const;
 
 export function Logo() {
   return (
