@@ -76,7 +76,7 @@ function ModulePage() {
 }
 
 function LessonView({ m, i, onNext }: { m: Module; i: number; onNext: () => void }) {
-  const l = m.lessons[i];
+  const l = m.lessons[i]!;
   const key = `${m.id}/${l.id}`;
   const [p, setP] = useProgress();
   const done = !!p.lessons[key];

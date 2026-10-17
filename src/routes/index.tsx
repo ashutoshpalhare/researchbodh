@@ -38,7 +38,7 @@ function Home() {
                   Continue: {next.title} <ArrowRight size={16} />
                 </Link>
               ) : (
-                <Link to="/learn/$moduleId" params={{ moduleId: modules[0].id }} className="btn btn-saffron">
+                <Link to="/learn/$moduleId" params={{ moduleId: modules[0]!.id }} className="btn btn-saffron">
                   Start module 1 <ArrowRight size={16} />
                 </Link>
               )}
