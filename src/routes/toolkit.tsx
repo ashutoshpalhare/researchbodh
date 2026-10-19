@@ -10,6 +10,8 @@ export const Route = createFileRoute("/toolkit")({
       { name: "description", content: "Question builder, source checker, outline builder, citation helper, notes and submission checklist." },
       { property: "og:title", content: "Research toolkit — ResearchBodh" },
       { property: "og:description", content: "Guided tools that coach your thinking, saved in your browser." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Toolkit,

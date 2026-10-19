@@ -11,6 +11,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Free, step-by-step academy teaching students to question, investigate, analyse and write research." },
       { property: "og:title", content: "ResearchBodh — From Curiosity to Confident Research" },
       { property: "og:description", content: "Nine modules that turn curiosity into confident research. Free, no sign-up." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,

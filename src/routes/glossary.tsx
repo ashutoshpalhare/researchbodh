@@ -10,6 +10,8 @@ export const Route = createFileRoute("/glossary")({
       { name: "description", content: "Plain-language definitions of key research terms, from abstract to validity." },
       { property: "og:title", content: "Research glossary — ResearchBodh" },
       { property: "og:description", content: "Key research terms explained simply." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Glossary,

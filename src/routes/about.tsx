@@ -7,6 +7,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Why ResearchBodh exists: a free academy that teaches research thinking, not shortcuts." },
       { property: "og:title", content: "About ResearchBodh" },
       { property: "og:description", content: "A free academy for research thinking, built by Ashutosh Palhare." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,

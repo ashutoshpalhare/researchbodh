@@ -5,11 +5,33 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import type { ConfigEnv } from "vite";
+import { normalizePagesBase, staticPagePaths } from "./scripts/pages-config";
 
-export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-  },
-});
+export default (env: ConfigEnv) => {
+  const { mode } = env;
+  const pagesBuild = mode === "github-pages";
+  const base = pagesBuild ? normalizePagesBase(process.env["PAGES_BASE_PATH"] ?? "/") : "/";
+
+  return defineConfig({
+    vite: { base },
+    // Node is used only to render static HTML in GitHub Actions; no server is deployed.
+    ...(pagesBuild ? { nitro: { preset: "node-server" } } : {}),
+    tanstackStart: {
+      server: { entry: "server" },
+      ...(pagesBuild ? {
+        router: { basepath: base },
+        pages: staticPagePaths.map((path) => ({
+          path: path === "/" ? base : `${base}${path.slice(1)}`,
+        })),
+        prerender: {
+          enabled: true,
+          autoStaticPathsDiscovery: false,
+          crawlLinks: false,
+          failOnError: true,
+          autoSubfolderIndex: true,
+        },
+      } : {}),
+    },
+  })(env);
+};

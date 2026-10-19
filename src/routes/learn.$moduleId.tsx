@@ -19,6 +19,8 @@ export const Route = createFileRoute("/learn/$moduleId")({
         { name: "description", content: m.summary },
         { property: "og:title", content: `${m.title} — ResearchBodh` },
         { property: "og:description", content: m.summary },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   },
