@@ -10,6 +10,8 @@ export const Route = createFileRoute("/learn/")({
       { name: "description", content: "Browse all nine ResearchBodh modules and track your progress." },
       { property: "og:title", content: "All modules — ResearchBodh" },
       { property: "og:description", content: "Nine modules from curiosity to a capstone project." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Learn,

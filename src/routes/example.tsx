@@ -7,6 +7,8 @@ export const Route = createFileRoute("/example")({
       { name: "description", content: "Follow one student's research project through every stage, from question to final report." },
       { property: "og:title", content: "Worked example — ResearchBodh" },
       { property: "og:description", content: "One real-feeling project, every research step shown." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Example,
